@@ -1,0 +1,19 @@
+# Artefakty kompilacji i budowania CMake
+build/
+bin/
+lib/
+*.o
+*.a
+*.so
+*.dylib
+*.exe
+
+# Środowiska programistyczne / IDE
+.vscode/
+.idea/
+*.user
+*.suo
+
+# Pliki systemowe
+.DS_Store
+Thumbs.db

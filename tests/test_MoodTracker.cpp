@@ -1,4 +1,4 @@
-#include "/home/fucz/semestr 5/inżynieria oprogramowania/ćwiczenia/mood_tracker/src/MoodTracker.h"
+#include "MoodTracker.h"
 #include <cassert>
 #include <iostream>
 

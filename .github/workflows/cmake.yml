@@ -1,0 +1,30 @@
+name: CMake C++ Build & Test
+
+# Określamy, kiedy akcja ma się uruchamiać
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-and-test:
+    # Wybieramy czyste środowisko Ubuntu w chmurze GitHuba
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Klonowanie Twojego repozytorium do maszyny wirtualnej
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # 2. Konfiguracja CMake (odpowiednik: cmake -S . -B build)
+    - name: Configure CMake
+      run: cmake -B build -S . -DCMAKE_BUILD_TYPE=Release
+
+    # 3. Kompilacja kodu (odpowiednik: cmake --build build)
+    - name: Build Project
+      run: cmake --build build --config Release
+
+    # 4. Uruchomienie testów CTest (odpowiednik: ctest --test-dir build)
+    - name: Run CTest
+      run: ctest --test-dir build --output-on-failure
